@@ -1,5 +1,7 @@
 # devops-capstone-project
 
+![Build Status](https://github.com//devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.9](https://img.shields.io/badge/Python-3.9-green.svg)](https://shields.io/)
 
@@ -7,7 +9,7 @@
 
 This project implements a RESTful microservice for managing customer **Accounts** as part of the IBM DevOps and Software Engineering Capstone project. The service is built with Python and Flask, follows the Model-View-Controller (MVC) pattern, and supports full CRUD operations — Create, Read, Update, Delete, and List — on account records backed by a PostgreSQL database.
 
-The codebase is developed using Test-Driven Development (TDD) practices, maintaining at least 95% test coverage, and is designed to be built, tested, and deployed through a CI/CD pipeline using Tekton on OpenShift/Kubernetes.
+The codebase is developed using Test-Driven Development (TDD) practices, maintaining at least 95% test coverage, and is built, tested, and deployed through a CI/CD pipeline using GitHub Actions and Tekton on OpenShift/Kubernetes.
 
 ## Development Environment
 
@@ -95,6 +97,10 @@ The service exposes the following REST endpoints for managing accounts:
 | Update | `PUT` | `/accounts/{id}` |
 | Delete | `DELETE` | `/accounts/{id}` |
 | List | `GET` | `/accounts` |
+
+## Continuous Integration
+
+This project uses [GitHub Actions](https://github.com/features/actions) to automatically lint and test every pull request before it can be merged. The workflow spins up a PostgreSQL container, installs dependencies, runs `flake8` for linting, and runs the full test suite with `nosetests`. The build status is reflected in the badge at the top of this README.
 
 ## Local Kubernetes Development
 
